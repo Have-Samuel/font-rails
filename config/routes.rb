@@ -12,4 +12,12 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
+  # For admin dashboard, ensure that only authenticated admins can access it
+  authenticated :admin_user do
+    root to: "admin#index", as: :admin_root
+  end
+
+  # For admin index route:
+   get "admin" => "admin#index"
 end
