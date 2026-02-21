@@ -27,7 +27,7 @@
 
   <body>
     <main class="flex">
-     <nav class="flex w-full">
+     <nav class="flex">
      <div class="w-64 h-screen bg-gray-600 sticky top-0">
         <div class="flex">
             <%= image_tag "logo.png", class: "w-16" %>
@@ -36,36 +36,30 @@
         <ul class="flex flex-col text-gray-50">
             <li>
                 <%= link_to admin_path, class: "block px-2 py-2 hover:rounded hover:bg-gray-700" do %>
-            
-
                 <%=  fa_icon "dashboard", style: :solid %><span class="hidden md:inline-block mx-2">Dashboard</span>
                 <% end %>
                 </li>
                 <li>
                 <%= link_to admin_path, class: "block px-2 py-2 hover:rounded hover:bg-gray-700" do %>
-            
-
                 <%=  fa_icon "shopping-cart", style: :solid %><span class="hidden md:inline-block mx-2">Product</span>
                 <% end %>
                 </li>
                 <li>
                 <%= link_to admin_categories_path, class: "block px-2 py-2 hover:rounded hover:bg-gray-700" do %>
-            
-
                 <%=  fa_icon "list", style: :solid %><span class="hidden md:inline-block mx-2">Categories</span>
                 <% end %>
                 </li>
                 <li>
                 <%= link_to admin_path, class: "block px-2 py-2 hover:rounded hover:bg-gray-700" do %>
-            
-
                 <%=  fa_icon "truck-moving", style: :solid %><span class="hidden md:inline-block mx-2">Orders</span>
                 <% end %>
                 </li>
             </ul>
      </div>
      </nav>
+     <div class="p-8 ">
       <%= yield %>
+      </div>
     </main>
   </body>
 </html>
