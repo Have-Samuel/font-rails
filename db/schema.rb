@@ -58,7 +58,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_21_191832) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "imstalls", force: :cascade do |t|
+  create_table "installs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -66,8 +66,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_21_191832) do
     t.datetime "reset_password_sent_at"
     t.string "reset_password_token"
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_imstalls_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_imstalls_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_installs_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_installs_on_reset_password_token", unique: true
   end
 
   create_table "installs", force: :cascade do |t|
@@ -82,7 +82,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_21_191832) do
     t.index ["reset_password_token"], name: "index_installs_on_reset_password_token", unique: true
   end
 
-  create_table "unimstalls", force: :cascade do |t|
+  create_table "uninstalls", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -90,8 +90,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_21_191832) do
     t.datetime "reset_password_sent_at"
     t.string "reset_password_token"
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_unimstalls_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_unimstalls_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_uninstalls_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_uninstalls_on_reset_password_token", unique: true
   end
 
   create_table "uninstalls", force: :cascade do |t|
