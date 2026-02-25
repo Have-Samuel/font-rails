@@ -58,7 +58,7 @@
                         <%= product.description %>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-80">
-                        <%= product.price %>
+                        $<%= (product.price/100.0).to_s %>
                     </td>
                     </tr>
                 <% end %>
