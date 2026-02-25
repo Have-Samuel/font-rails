@@ -22,6 +22,6 @@ Rails.application.routes.draw do
     root to: "admin#index", as: :admin_root
   end
 
-  # For admin index route:
+   # For admin index route:
    get "admin" => "admin#index"
 end
