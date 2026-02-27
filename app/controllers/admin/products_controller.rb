@@ -1,19 +1,18 @@
-class Admin::ProductsController < AdminController
+class Admin::ProductsController < ApplicationController
   before_action :set_admin_product, only: %i[ show edit update destroy ]
 
   # GET /admin/products or /admin/products.json
   def index
-    @admin_products = Product.all
+    @admin_products = Admin::Product.all
   end
 
   # GET /admin/products/1 or /admin/products/1.json
   def show
-    @admin_product
   end
 
   # GET /admin/products/new
   def new
-    @admin_product = Product.new
+    @admin_product = Admin::Product.new
   end
 
   # GET /admin/products/1/edit
@@ -22,11 +21,11 @@ class Admin::ProductsController < AdminController
 
   # POST /admin/products or /admin/products.json
   def create
-    @admin_product = Product.new(admin_product_params)
+    @admin_product = Admin::Product.new(admin_product_params)
 
     respond_to do |format|
       if @admin_product.save
-        format.html { redirect_back fallback_location: admin_products_path, notice: "Product was successfully created." }
+        format.html { redirect_to @admin_product, notice: "Product was successfully created." }
         format.json { render :show, status: :created, location: @admin_product }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,8 +38,7 @@ class Admin::ProductsController < AdminController
   def update
     respond_to do |format|
       if @admin_product.update(admin_product_params)
-        # format.html { redirect_to @admin_product, notice: "Product was successfully updated.", status: :see_other }
-        format.html { redirect_back fallback_location: admin_products_path, notice: "Product was successfully updated.", status: :see_other }
+        format.html { redirect_to @admin_product, notice: "Product was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @admin_product }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,11 +60,11 @@ class Admin::ProductsController < AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_product
-      @admin_product = Product.find(params[:id])
+      @admin_product = Admin::Product.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.
     def admin_product_params
-      params.require(:product).permit(:name, :description, :price, :category_id, :active, images: [])
+      params.expect(admin_product: [ :name, :description, :price, :category_id, :active ])
     end
 end
