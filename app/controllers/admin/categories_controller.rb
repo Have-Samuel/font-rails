@@ -25,7 +25,6 @@ class Admin::CategoriesController < AdminController
 
     respond_to do |format|
       if @admin_category.save
-        # format.html { redirect_to @admin_category, notice: "Category was successfully created." }
         format.html { redirect_back fallback_location: admin_categories_path, notice: "Category was successfully created." }
         format.json { render :show, status: :created, location: @admin_category }
       else
@@ -40,7 +39,7 @@ class Admin::CategoriesController < AdminController
     respond_to do |format|
       if @admin_category.update(admin_category_params)
         # format.html { redirect_to @admin_category, notice: "Category was successfully updated.", status: :see_other }
-        format.html { redirect_back fallback_location: admin_categories_path, notice: "Category was successfully updated.", status: :see_other }
+        format.html { redirect_back fallback_location: admin_products_path, notice: "Category was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @admin_category }
       else
         format.html { render :edit, status: :unprocessable_entity }
