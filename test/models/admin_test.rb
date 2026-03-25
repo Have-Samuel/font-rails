@@ -1,6 +1,6 @@
 require "test_helper"
 
-class UnimstallTest < ActiveSupport::TestCase
+class AdminTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
