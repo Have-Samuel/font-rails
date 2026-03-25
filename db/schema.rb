@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_21_191832) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_27_025802) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -37,6 +37,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_21_191832) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "admin_products", force: :cascade do |t|
+    t.boolean "active"
+    t.integer "category_id", null: false
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.string "name"
+    t.integer "price"
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_admin_products_on_category_id"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -108,4 +119,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_21_191832) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "admin_products", "categories"
 end

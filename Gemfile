@@ -71,7 +71,7 @@ group :test do
 end
 
 # gem "font-awesome-sass", "~> 6.7.2"
-gem "font-awesome-rails"
+# gem "font-awesome-rails"
 
 # gem "font-awesome-sass"
 

@@ -11,9 +11,6 @@
 
     <%= yield :head %>
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
@@ -36,12 +33,12 @@
         <ul class="flex flex-col text-gray-50">
             <li>
                 <%= link_to admin_path, class: "block px-2 py-2 hover:rounded hover:bg-gray-700" do %>
-                <%=  fa_icon "dashboard", style: :solid %><span class="hidden md:inline-block mx-2">Dashboard</span>
+                <%=  fa_icon "gauge-high", style: :solid %><span class="hidden md:inline-block mx-2">Dashboard</span>
                 <% end %>
                 </li>
                 <li>
-                <%= link_to admin_path, class: "block px-2 py-2 hover:rounded hover:bg-gray-700" do %>
-                <%=  fa_icon "shopping-cart", style: :solid %><span class="hidden md:inline-block mx-2">Product</span>
+                <%= link_to admin_products_path, class: "block px-2 py-2 hover:rounded hover:bg-gray-700" do %>
+                <%=  fa_icon "shopping-cart", style: :solid %><span class="hidden md:inline-block mx-2">Products</span>
                 <% end %>
                 </li>
                 <li>

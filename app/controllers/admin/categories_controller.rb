@@ -25,7 +25,6 @@ class Admin::CategoriesController < AdminController
 
     respond_to do |format|
       if @admin_category.save
-        # format.html { redirect_to @admin_category, notice: "Category was successfully created." }
         format.html { redirect_back fallback_location: admin_categories_path, notice: "Category was successfully created." }
         format.json { render :show, status: :created, location: @admin_category }
       else
@@ -40,7 +39,7 @@ class Admin::CategoriesController < AdminController
     respond_to do |format|
       if @admin_category.update(admin_category_params)
         # format.html { redirect_to @admin_category, notice: "Category was successfully updated.", status: :see_other }
-        format.html { redirect_back fallback_location: admin_categories_path, notice: "Category was successfully updated.", status: :see_other }
+        format.html { redirect_back fallback_location: admin_products_path, notice: "Category was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @admin_category }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,13 +61,12 @@ class Admin::CategoriesController < AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_category
-      # @admin_category = Category.find(params.expect(:id))
-      @admin_category = Category.find(params[:id])
+      @admin_category = Category.find(params.expect(:id))
+      # @admin_category = Category.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def admin_category_params
-      # params.expect(admin_category: [ :name, :description ])
       params.require(:category).permit(:name, :description, :image)
     end
 end
